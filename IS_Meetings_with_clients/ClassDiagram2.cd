@@ -1,0 +1,461 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="IS_Meetings_with_clients.ClientDataAccess" BaseTypeListCollapsed="true">
+    <Position X="10.5" Y="3.5" Width="1.75" />
+    <AssociationLine Name="_connection" Type="System.Data.SqlClient.SqlConnection" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="12.25" Y="4.244" />
+        <Point X="12.625" Y="4.244" />
+        <Point X="12.625" Y="1.125" />
+        <Point X="13.75" Y="1.125" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAABBA=</HashCode>
+      <FileName>ClientLogic.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_connection" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IS_Meetings_with_clients.DataSet1" Collapsed="true">
+    <Position X="7.25" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAQAAAwAAAApCBAgAQAAAAAgCQBgAAAAAAAEABBQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IS_Meetings_with_clients.DataSet2" Collapsed="true">
+    <Position X="7.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAwAAAALABAAAQAAAAAgCQBgAAAAAAgEABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IS_Meetings_with_clients.Login_form">
+    <Position X="0.5" Y="0.5" Width="1.75" />
+    <Members>
+      <Field Name="AutorisationLabel" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="label1" Hidden="true" />
+      <Field Name="label2" Hidden="true" />
+      <Field Name="label3" Hidden="true" />
+      <Field Name="label4" Hidden="true" />
+      <Field Name="label5" Hidden="true" />
+      <Field Name="label6" Hidden="true" />
+      <Field Name="label7" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Class Name="IS_Meetings_with_clients.Login_form.AuthorizationService">
+        <TypeIdentifier>
+          <NewMemberFileName>Login_form.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <AssociationLine Name="connection" Type="System.Data.SqlClient.SqlConnection">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.452" Y="0.214" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>EAAAAgEAACAACBAgAACBCAgCQAAAAAQAAAAAABAAAAA=</HashCode>
+      <FileName>Login_form.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="connection" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="IS_Meetings_with_clients.Main_form_for_Client">
+    <Position X="3" Y="0.5" Width="2.5" />
+    <Members>
+      <Field Name="button13" Hidden="true" />
+      <Method Name="button13_Click" Hidden="true" />
+      <Field Name="Client_control" Hidden="true" />
+      <Field Name="comboBox14" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Field Name="dataGridView1" Hidden="true" />
+      <Field Name="dataSet11" Hidden="true" />
+      <Field Name="dataSet2" Hidden="true" />
+      <Field Name="dataTable1BindingSource" Hidden="true" />
+      <Field Name="dataTable1TableAdapter" Hidden="true" />
+      <Field Name="dateTimePicker1" Hidden="true" />
+      <Field Name="dateTimePicker2" Hidden="true" />
+      <Field Name="delete_meeting" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="groupBox11" Hidden="true" />
+      <Field Name="groupBox5" Hidden="true" />
+      <Field Name="groupBox7" Hidden="true" />
+      <Field Name="groupBox8" Hidden="true" />
+      <Field Name="ID_client_textBox" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="label1" Hidden="true" />
+      <Field Name="label12" Hidden="true" />
+      <Field Name="label14" Hidden="true" />
+      <Method Name="label14_Click" Hidden="true" />
+      <Field Name="label15" Hidden="true" />
+      <Field Name="label19" Hidden="true" />
+      <Field Name="label2" Hidden="true" />
+      <Field Name="label20" Hidden="true" />
+      <Field Name="label21" Hidden="true" />
+      <Field Name="label24" Hidden="true" />
+      <Field Name="label25" Hidden="true" />
+      <Field Name="label7" Hidden="true" />
+      <Field Name="label9" Hidden="true" />
+      <Field Name="richTextBox2" Hidden="true" />
+      <Field Name="richTextBox3" Hidden="true" />
+      <Field Name="textBox2" Hidden="true" />
+      <Field Name="textBox3" Hidden="true" />
+    </Members>
+    <AssociationLine Name="_clientDataAccess" Type="IS_Meetings_with_clients.IClientDataAccess">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.068" Y="0.102" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="_meetingDataAccess" Type="IS_Meetings_with_clients.IMeetingDataAccess" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="3.125" Y="5.646" />
+        <Point X="3.125" Y="8.365" />
+        <Point X="10.25" Y="8.365" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.057" Y="0.071" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>cyCAAAADgCgMQhFCQQTAAYBCACgAMAACgCgSYADBIiA=</HashCode>
+      <FileName>Main_form_for_Client.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_clientDataAccess" />
+      <Field Name="_meetingDataAccess" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="IS_Meetings_with_clients.Main_form_for_SupportWorker">
+    <Position X="6.25" Y="0.5" Width="2.75" />
+    <Members>
+      <Field Name="button13" Hidden="true" />
+      <Method Name="button13_Click" Hidden="true" />
+      <Field Name="clientBindingSource" Hidden="true" />
+      <Field Name="Clients" Hidden="true" />
+      <Field Name="clientTableAdapter" Hidden="true" />
+      <Field Name="comboBox1" Hidden="true" />
+      <Field Name="comboBox4" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Field Name="dataGridView1" Hidden="true" />
+      <Field Name="dataSet1" Hidden="true" />
+      <Field Name="dataSet1BindingSource" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="groupBox11" Hidden="true" />
+      <Field Name="groupBox8" Hidden="true" />
+      <Field Name="groupBox9" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="label1" Hidden="true" />
+      <Field Name="label14" Hidden="true" />
+      <Field Name="label2" Hidden="true" />
+      <Field Name="label20" Hidden="true" />
+      <Field Name="label21" Hidden="true" />
+      <Field Name="label24" Hidden="true" />
+      <Field Name="label25" Hidden="true" />
+      <Field Name="label7" Hidden="true" />
+      <Field Name="richTextBox1" Hidden="true" />
+      <Field Name="Support" Hidden="true" />
+      <Field Name="Support_workerBindingSource" Hidden="true" />
+      <Field Name="support_workerTableAdapter" Hidden="true" />
+      <Field Name="supportworkerBindingSource" Hidden="true" />
+      <Field Name="tabControl2" Hidden="true" />
+      <Field Name="textBox_ID_worker" Hidden="true" />
+      <Field Name="textBox1" Hidden="true" />
+      <Field Name="textBox2" Hidden="true" />
+      <Field Name="Worker" Hidden="true" />
+    </Members>
+    <AssociationLine Name="_workerDataAccess" Type="IS_Meetings_with_clients.IWorkerDataAccess">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.165" Y="0.226" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="_meetingDataAccess" Type="IS_Meetings_with_clients.IMeetingDataAccess" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.531" Y="4.492" />
+        <Point X="8.531" Y="7.438" />
+        <Point X="10.25" Y="7.438" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>MyAhAZMAAKgEABAQRCDEIAACAAgAEAgCkCAQQkDBGCA=</HashCode>
+      <FileName>Main_form_for_SupportWorker.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_workerDataAccess" />
+      <Field Name="_meetingDataAccess" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="IS_Meetings_with_clients.MeetingDataAccess" BaseTypeListCollapsed="true">
+    <Position X="9.5" Y="0.5" Width="2.5" />
+    <AssociationLine Name="_connection" Type="System.Data.SqlClient.SqlConnection">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.016" Y="0.264" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAIAAAAAAAAAAAAAAAQIAAAAAAAABAA=</HashCode>
+      <FileName>MeetingLogic.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_connection" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IS_Meetings_with_clients.Program">
+    <Position X="7.25" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IS_Meetings_with_clients.WorkerDataAccess" BaseTypeListCollapsed="true">
+    <Position X="13.75" Y="2" Width="1.75" />
+    <AssociationLine Name="_connection" Type="System.Data.SqlClient.SqlConnection">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.099" Y="0.17" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>WorkerLogic.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_connection" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IS_Meetings_with_clients.DataSet1TableAdapters.ClientTableAdapter" Collapsed="true">
+    <Position X="2.5" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IS_Meetings_with_clients.DataSet1TableAdapters.Support_workerTableAdapter" Collapsed="true">
+    <Position X="2.5" Y="12.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EACAAGAAEAAAAAcAIAAAAAAAACAICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IS_Meetings_with_clients.DataSet1TableAdapters.TableAdapterManager" Collapsed="true">
+    <Position X="4" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAACBAAABABAEBAAAAMAAgAAACgAAAAAQAAAAABAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IS_Meetings_with_clients.DataSet2TableAdapters.DataTable1TableAdapter" Collapsed="true">
+    <Position X="5.5" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EACAAGAAEAAAAAcAIAAAAAAAACAICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IS_Meetings_with_clients.DataSet2TableAdapters.TableAdapterManager" Collapsed="true">
+    <Position X="5.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAACAAAABABAEBAAAAMAAgAAACgAAAAAQAAAAABAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IS_Meetings_with_clients.Properties.Resources" Collapsed="true">
+    <Position X="4" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IS_Meetings_with_clients.Properties.Settings" Collapsed="true">
+    <Position X="5.5" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAQAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SqlServerTypes.Utilities" Collapsed="true">
+    <Position X="2.5" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAQAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>SqlServerTypes\Loader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IS_Meetings_with_clients.CopyOfClientDataAccess" BaseTypeListCollapsed="true">
+    <Position X="8.25" Y="19.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAABBA=</HashCode>
+      <FileName>ClientLogic.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IS_Meetings_with_clients.CopyOfLogin_form">
+    <Position X="0.5" Y="16.5" Width="1.75" />
+    <Members>
+      <Field Name="AutorisationLabel" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="label1" Hidden="true" />
+      <Field Name="label2" Hidden="true" />
+      <Field Name="label3" Hidden="true" />
+      <Field Name="label4" Hidden="true" />
+      <Field Name="label5" Hidden="true" />
+      <Field Name="label6" Hidden="true" />
+      <Field Name="label7" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Class Name="IS_Meetings_with_clients.CopyOfLogin_form.AuthorizationService" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Login_form.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>EAAAAgEAACAACBAgAACBCAgCQAAAAAQAAAAAABAAAAA=</HashCode>
+      <FileName>Login_form.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IS_Meetings_with_clients.CopyOfMain_form_for_Client">
+    <Position X="2.5" Y="16.5" Width="2.5" />
+    <Members>
+      <Field Name="button13" Hidden="true" />
+      <Method Name="button13_Click" Hidden="true" />
+      <Field Name="Client_control" Hidden="true" />
+      <Field Name="comboBox14" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Field Name="dataGridView1" Hidden="true" />
+      <Field Name="dataSet11" Hidden="true" />
+      <Field Name="dataSet2" Hidden="true" />
+      <Field Name="dataTable1BindingSource" Hidden="true" />
+      <Field Name="dataTable1TableAdapter" Hidden="true" />
+      <Field Name="dateTimePicker1" Hidden="true" />
+      <Field Name="dateTimePicker2" Hidden="true" />
+      <Field Name="delete_meeting" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="groupBox11" Hidden="true" />
+      <Field Name="groupBox5" Hidden="true" />
+      <Field Name="groupBox7" Hidden="true" />
+      <Field Name="groupBox8" Hidden="true" />
+      <Field Name="ID_client_textBox" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="label1" Hidden="true" />
+      <Field Name="label12" Hidden="true" />
+      <Field Name="label14" Hidden="true" />
+      <Method Name="label14_Click" Hidden="true" />
+      <Field Name="label15" Hidden="true" />
+      <Field Name="label19" Hidden="true" />
+      <Field Name="label2" Hidden="true" />
+      <Field Name="label20" Hidden="true" />
+      <Field Name="label21" Hidden="true" />
+      <Field Name="label24" Hidden="true" />
+      <Field Name="label25" Hidden="true" />
+      <Field Name="label7" Hidden="true" />
+      <Field Name="label9" Hidden="true" />
+      <Field Name="richTextBox2" Hidden="true" />
+      <Field Name="richTextBox3" Hidden="true" />
+      <Field Name="textBox2" Hidden="true" />
+      <Field Name="textBox3" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>cyCAAAADgCgMQhFCQQTAAYBCACgAMAACgCgSYADBIiA=</HashCode>
+      <FileName>Main_form_for_Client.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IS_Meetings_with_clients.CopyOfMain_form_for_SupportWorker">
+    <Position X="5.25" Y="16.5" Width="2.75" />
+    <Members>
+      <Field Name="button13" Hidden="true" />
+      <Method Name="button13_Click" Hidden="true" />
+      <Field Name="clientBindingSource" Hidden="true" />
+      <Field Name="Clients" Hidden="true" />
+      <Field Name="clientTableAdapter" Hidden="true" />
+      <Field Name="comboBox1" Hidden="true" />
+      <Field Name="comboBox4" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Field Name="dataGridView1" Hidden="true" />
+      <Field Name="dataSet1" Hidden="true" />
+      <Field Name="dataSet1BindingSource" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="groupBox11" Hidden="true" />
+      <Field Name="groupBox8" Hidden="true" />
+      <Field Name="groupBox9" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="label1" Hidden="true" />
+      <Field Name="label14" Hidden="true" />
+      <Field Name="label2" Hidden="true" />
+      <Field Name="label20" Hidden="true" />
+      <Field Name="label21" Hidden="true" />
+      <Field Name="label24" Hidden="true" />
+      <Field Name="label25" Hidden="true" />
+      <Field Name="label7" Hidden="true" />
+      <Field Name="richTextBox1" Hidden="true" />
+      <Field Name="Support" Hidden="true" />
+      <Field Name="Support_workerBindingSource" Hidden="true" />
+      <Field Name="support_workerTableAdapter" Hidden="true" />
+      <Field Name="supportworkerBindingSource" Hidden="true" />
+      <Field Name="tabControl2" Hidden="true" />
+      <Field Name="textBox_ID_worker" Hidden="true" />
+      <Field Name="textBox1" Hidden="true" />
+      <Field Name="textBox2" Hidden="true" />
+      <Field Name="Worker" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>MyAhAZMAAKgEABAQRCDEIAACAAgAEAgCkCAQQkDBGCA=</HashCode>
+      <FileName>Main_form_for_SupportWorker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IS_Meetings_with_clients.CopyOfWorkerDataAccess" BaseTypeListCollapsed="true">
+    <Position X="8.25" Y="21.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>WorkerLogic.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="System.Data.SqlClient.SqlConnection" Collapsed="true">
+    <Position X="13.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="IS_Meetings_with_clients.IClientDataAccess">
+    <Position X="3.75" Y="6.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAABA=</HashCode>
+      <FileName>DataInterfaces.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="IS_Meetings_with_clients.IMeetingDataAccess">
+    <Position X="10.25" Y="6.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAIAAAAAAAAAAAAAAAQIAAAAAAAAAAA=</HashCode>
+      <FileName>DataInterfaces.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="IS_Meetings_with_clients.IWorkerDataAccess">
+    <Position X="6.25" Y="6.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataInterfaces.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="IS_Meetings_with_clients.CopyOfIClientDataAccess">
+    <Position X="11" Y="16.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAABA=</HashCode>
+      <FileName>DataInterfaces.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="IS_Meetings_with_clients.CopyOfIMeetingDataAccess">
+    <Position X="10.5" Y="19.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAIAAAAAAAAAAAAAAAQIAAAAAAAAAAA=</HashCode>
+      <FileName>DataInterfaces.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="IS_Meetings_with_clients.CopyOfIWorkerDataAccess">
+    <Position X="11" Y="18" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataInterfaces.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

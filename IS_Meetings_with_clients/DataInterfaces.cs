@@ -13,6 +13,27 @@ namespace IS_Meetings_with_clients
         void UpdateClientData(string idClient, string phoneNumber, string email, string address);
     }
 
+    public interface CopyOfIClientDataAccess
+    {
+        DataTable GetClientData(string login);
+        void UpdateClientData(string idClient, string phoneNumber, string email, string address);
+    }
+
+    public interface CopyOfIMeetingDataAccess
+    {
+        DataTable GetMeetingsForClient(string clientId);
+        DataTable GetMeetingsForSupportWorker();
+
+        void AddMeeting(string clientId, DateTime date, DateTime time, string address, string problemDescription);
+        void DeleteMeeting(string meetingId);
+        void UpdateMeetingStatus(int meetingID, int workerID, string status);
+    }
+
+    public interface CopyOfIWorkerDataAccess
+    {
+        object GetWorkerData(string login);
+    }
+
     public interface IMeetingDataAccess
     {
         DataTable GetMeetingsForClient(string clientId);

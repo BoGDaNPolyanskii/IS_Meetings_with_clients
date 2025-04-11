@@ -25,11 +25,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationTest1ClientFormA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationTest3", "TestProject7\IntegrationTest3.csproj", "{61F0AE39-4D14-4BF8-80DD-31C26DA33A72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTest4", "IntegrationTest4\IntegrationTest4.csproj", "{05F06722-745F-4BE4-B893-67A95CCD9D8F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationTest4", "IntegrationTest4\IntegrationTest4.csproj", "{05F06722-745F-4BE4-B893-67A95CCD9D8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTest5", "UnitTest14_TimerUpdateMeetingsClient\IntegrationTest5.csproj", "{6B2CC073-3BF3-4238-85EE-BF736A2A0463}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationTest5", "UnitTest14_TimerUpdateMeetingsClient\IntegrationTest5.csproj", "{6B2CC073-3BF3-4238-85EE-BF736A2A0463}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTest6", "IntegrationTest6\IntegrationTest6.csproj", "{DEC743CF-E9DE-4202-9E6D-9AEA7B62BA40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationTest6", "IntegrationTest6\IntegrationTest6.csproj", "{DEC743CF-E9DE-4202-9E6D-9AEA7B62BA40}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
