@@ -18,23 +18,22 @@ namespace IS_Meetings_with_clients
             connection = new SqlConnection(GetConnectionString());
         }
 
-        // Клас авторизації
         public static class AuthorizationService
         {
-            // Отримати роль користувача за номером телефону
             public static string GetRole(SqlConnection connection, string phoneNumber)
             {
-                string querySupportWorker = @"
-                    SELECT 'SupportWorkerRole'
-                    FROM Support_worker SW
-                    JOIN [User] U ON U.ID_user = SW.ID_user
-                    WHERE U.Phone_number = @PhoneNumber";
-
                 string queryClient = @"
                     SELECT 'ClientRole'
                     FROM Client C
                     JOIN [User] U ON U.ID_user = C.ID_user
                     WHERE U.Phone_number = @PhoneNumber";
+                
+                string querySupportWorker = @"
+                    SELECT 'SupportWorkerRole'
+                    FROM Support_worker SW
+                    JOIN [User] U ON U.ID_user = SW.ID_user
+                    WHERE U.Phone_number = @PhoneNumber";
+                
 
                 using (SqlCommand cmd = new SqlCommand(querySupportWorker, connection))
                 {
@@ -55,7 +54,6 @@ namespace IS_Meetings_with_clients
                 return string.Empty;
             }
 
-            // Отримати ID_user за номером телефону
             public static Guid? GetUserId(SqlConnection connection, string phoneNumber)
             {
                 string query = "SELECT ID_user FROM [User] WHERE Phone_number = @PhoneNumber";
@@ -70,10 +68,9 @@ namespace IS_Meetings_with_clients
             }
         }
 
-        // Авторизація
         private void Join_Click(object sender, EventArgs e)
         {
-            string phoneNumber = loginBox.Text.Trim(); // Використовуємо номер телефону
+            string phoneNumber = loginBox.Text.Trim();
 
             try
             {
@@ -89,7 +86,7 @@ namespace IS_Meetings_with_clients
                 }
                 else
                 {
-                    OpenMainForm(role, userId.Value);
+                    OpenMainForm(role, phoneNumber, userId.Value);
                     Hide();
                 }
             }
@@ -97,31 +94,24 @@ namespace IS_Meetings_with_clients
             {
                 MessageBox.Show(ex.Message, "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            finally
-            {
-                if (connection.State == ConnectionState.Open)
-                    connection.Close();
-            }
         }
 
-        // Відкриття відповідної форми
-        private void OpenMainForm(string role, Guid userId)
+        private void OpenMainForm(string role, string login, Guid userId)
         {
             Form mainForm = null;
 
-            if (role == "SupportWorkerRole")
+            if (role == "ClientRole")
             {
-                mainForm = new Main_form_for_SupportWorker(userId);
+                mainForm = new Main_form_for_Client(connection, login, userId);
             }
-            else if (role == "ClientRole")
+            else if (role == "SupportWorkerRole")
             {
-                mainForm = new Main_form_for_Client(userId);
+                mainForm = new Main_form_for_SupportWorker(connection, login, userId);
             }
 
             mainForm?.Show();
         }
 
-        // Отримання рядка підключення
         private string GetConnectionString()
         {
             string connectionFile = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "DBConnection");

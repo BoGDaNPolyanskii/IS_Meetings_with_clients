@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_form_for_Client));
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.dataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet2 = new IS_Meetings_with_clients.DataSet2();
             this.button13 = new System.Windows.Forms.Button();
@@ -126,26 +126,27 @@
             this.button13.Size = new System.Drawing.Size(39, 37);
             this.button13.TabIndex = 21;
             this.button13.UseVisualStyleBackColor = false;
+            this.button13.Click += new System.EventHandler(this.Form_close);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Trebuchet MS", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(80, 692);
+            this.label7.Font = new System.Drawing.Font("Trebuchet MS", 11F, System.Drawing.FontStyle.Italic);
+            this.label7.Location = new System.Drawing.Point(12, 693);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(660, 27);
+            this.label7.Size = new System.Drawing.Size(614, 27);
             this.label7.TabIndex = 24;
-            this.label7.Text = "Служба підтримки: www.help.ua ;      телефон: 0961234567";
+            this.label7.Text = "Служба підтримки: www.help.ua ;  телефон: 0961234567";
             // 
             // label24
             // 
             this.label24.AutoSize = true;
             this.label24.BackColor = System.Drawing.Color.Transparent;
-            this.label24.Font = new System.Drawing.Font("Trebuchet MS", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(813, 692);
+            this.label24.Font = new System.Drawing.Font("Trebuchet MS", 11F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label24.Location = new System.Drawing.Point(645, 693);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(106, 27);
+            this.label24.Size = new System.Drawing.Size(104, 27);
             this.label24.TabIndex = 25;
             this.label24.Text = "ID client:";
             // 
@@ -153,12 +154,12 @@
             // 
             this.ID_client_textBox.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ID_client_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ID_client_textBox.Font = new System.Drawing.Font("Trebuchet MS", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ID_client_textBox.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 9F);
             this.ID_client_textBox.ForeColor = System.Drawing.Color.Black;
-            this.ID_client_textBox.Location = new System.Drawing.Point(920, 691);
+            this.ID_client_textBox.Location = new System.Drawing.Point(752, 698);
             this.ID_client_textBox.Name = "ID_client_textBox";
             this.ID_client_textBox.ReadOnly = true;
-            this.ID_client_textBox.Size = new System.Drawing.Size(100, 26);
+            this.ID_client_textBox.Size = new System.Drawing.Size(312, 22);
             this.ID_client_textBox.TabIndex = 27;
             this.ID_client_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -207,9 +208,9 @@
             // 
             // reportViewer1
             // 
-            reportDataSource1.Name = "DataSet2";
-            reportDataSource1.Value = this.dataTable1BindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            reportDataSource3.Name = "DataSet2";
+            reportDataSource3.Value = this.dataTable1BindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource3);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "IS_Meetings_with_clients.Report3.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(-4, 0);
             this.reportViewer1.Name = "reportViewer1";
@@ -243,7 +244,7 @@
             this.tabControl1.Controls.Add(this.tabPage8);
             this.tabControl1.Controls.Add(this.tabPage9);
             this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.tabControl1.Location = new System.Drawing.Point(3, 4);
+            this.tabControl1.Location = new System.Drawing.Point(3, 5);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -275,11 +276,11 @@
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Location = new System.Drawing.Point(150, 18);
+            this.groupBox1.Location = new System.Drawing.Point(150, 9);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(681, 463);
+            this.groupBox1.Size = new System.Drawing.Size(681, 482);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Подання заявки для запису";
@@ -383,10 +384,10 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Sitka Banner", 10F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(248, 415);
+            this.button1.Location = new System.Drawing.Point(259, 420);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(163, 38);
+            this.button1.Size = new System.Drawing.Size(163, 46);
             this.button1.TabIndex = 15;
             this.button1.Text = "Подати заявку";
             this.button1.UseVisualStyleBackColor = true;
@@ -499,7 +500,7 @@
             this.groupBox11.Size = new System.Drawing.Size(559, 260);
             this.groupBox11.TabIndex = 6;
             this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "Перегляд та редагування контактих даних";
+            this.groupBox11.Text = "Перегляд та редагування контактних даних";
             // 
             // richTextBox3
             // 

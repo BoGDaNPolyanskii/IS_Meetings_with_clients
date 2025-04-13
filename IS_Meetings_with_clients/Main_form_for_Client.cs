@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.ReportingServices.ReportProcessing.ReportObjectModel;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -11,49 +12,80 @@ namespace IS_Meetings_with_clients
     public partial class Main_form_for_Client : Form
     {
         private SqlConnection connection;
-        private string login;
-        private readonly string _login;
+        private readonly string login;
+        private readonly string clientID;
         private Timer scheduleTimer;
 
-        public Main_form_for_Client(SqlConnection connection, string login)
+        public Main_form_for_Client(SqlConnection connection, string login, Guid userId)
         {
             InitializeComponent();
             this.connection = connection;
             this.login = login;
-            _login = login;
+            this.clientID = userId.ToString();
 
             //// Load user data on form load
-            //LoadUserData();
+            LoadUserData();
             //LoadMeetingsForClient();
 
             //// Ініціалізація таймера
-            //scheduleTimer = new Timer();
-            //scheduleTimer.Interval = 60000; // Оновлення кожні 60 секунд (60000 мілісекунд)
-            //scheduleTimer.Tick += ScheduleTimer_Tick;
-            //scheduleTimer.Start();
+            scheduleTimer = new Timer();
+            scheduleTimer.Interval = 60000; // Оновлення кожні 60 секунд (60000 мілісекунд)
+            scheduleTimer.Tick += ScheduleTimer_Tick;
+            scheduleTimer.Start();
         }
 
         private void Save_changed_client_data_Click(object sender, EventArgs e)
         {
+            string email = textBox3.Text;
+            string address = richTextBox3.Text;
 
+            // Оновлення email в таблиці [User]
+            using (SqlCommand updateEmailCmd = new SqlCommand("UPDATE [User] SET Email = @Email WHERE ID_user = @id", connection))
+            {
+                updateEmailCmd.Parameters.AddWithValue("@Email", email);
+                updateEmailCmd.Parameters.AddWithValue("@id", clientID);
+                updateEmailCmd.ExecuteNonQuery();
+            }
+
+            // Оновлення адреси в таблиці Client
+            using (SqlCommand updateAddressCmd = new SqlCommand("UPDATE Client SET Address = @Address WHERE ID_user = @id", connection))
+            {
+                updateAddressCmd.Parameters.AddWithValue("@Address", address);
+                updateAddressCmd.Parameters.AddWithValue("@id", clientID);
+                updateAddressCmd.ExecuteNonQuery();
+            }
+
+            MessageBox.Show("Дані успішно оновлено!", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         //// Метод, який викликається під час спрацьовування таймера для оновлення графіка зустрічей
-        //private void ScheduleTimer_Tick(object sender, EventArgs e)
-        //{
-        //    LoadMeetingsForClient();
-        //}
-        //private void LoadUserData()
-        //{
-        //    DataTable dataTable = _clientDataAccess.GetClientData(_login);
-        //    if (dataTable.Rows.Count > 0)
-        //    {
-        //        ID_client_textBox.Text = dataTable.Rows[0]["ID_client"].ToString();
-        //        textBox2.Text = dataTable.Rows[0]["Phone_number"].ToString();
-        //        textBox3.Text = dataTable.Rows[0]["Email"].ToString();
-        //        richTextBox3.Text = dataTable.Rows[0]["Address"].ToString();
-        //    }
-        //}
+        private void ScheduleTimer_Tick(object sender, EventArgs e)
+        {
+            //LoadMeetingsForClient();
+        }
+        private void LoadUserData()
+        {
+            ID_client_textBox.Text = clientID;
+
+            // Завантаження email з таблиці [User]
+            using (SqlCommand emailCmd = new SqlCommand("SELECT Email FROM [User] WHERE ID_user = @id", connection))
+            {
+                emailCmd.Parameters.AddWithValue("@id", clientID);
+                var emailResult = emailCmd.ExecuteScalar();
+                if (emailResult != null)
+                    textBox3.Text = emailResult.ToString();
+            }
+
+            // Завантаження адреси з таблиці Client
+            using (SqlCommand addressCmd = new SqlCommand("SELECT Address FROM Client WHERE ID_user = @id", connection))
+            {
+                addressCmd.Parameters.AddWithValue("@id", clientID);
+                var addressResult = addressCmd.ExecuteScalar();
+                if (addressResult != null)
+                    richTextBox3.Text = addressResult.ToString();
+            }
+        }
+
 
         //private void Add_meeting_Click(object sender, EventArgs e)
         //{
@@ -82,34 +114,34 @@ namespace IS_Meetings_with_clients
         //    this.reportViewer1.RefreshReport();
         //}
 
-        //private void LoadMeetingsForClient()
-        //{
-        //    DataTable dataTable = _meetingDataAccess.GetMeetingsForClient(ID_client_textBox.Text);
+        private void LoadMeetingsForClient()
+        {
+            //DataTable dataTable = _meetingDataAccess.GetMeetingsForClient(ID_client_textBox.Text);
 
-        //    // Очищення вмісту comboBox14 перед додаванням нових значень
-        //    comboBox14.Items.Clear();
+            // Очищення вмісту comboBox14 перед додаванням нових значень
+            //comboBox14.Items.Clear();
 
-        //    // Додавання кодів зустрічей до comboBox14
-        //    foreach (DataRow row in dataTable.Rows)
-        //    {
-        //        comboBox14.Items.Add(row["ID_meeting"].ToString());
-        //    }
+            // Додавання кодів зустрічей до comboBox14
+            //foreach (DataRow row in dataTable.Rows)
+            //{
+            //    comboBox14.Items.Add(row["ID_meeting"].ToString());
+            //}
 
-        //    // Видалення першої пустої колонки
-        //    dataGridView1.RowHeadersVisible = false;
+            // Видалення першої пустої колонки
+            //dataGridView1.RowHeadersVisible = false;
 
-        //    // Відображення даних в dataGridView1
-        //    dataGridView1.DataSource = dataTable;
+            // Відображення даних в dataGridView1
+            //dataGridView1.DataSource = dataTable;
 
-        //    // Зміна розміру шрифту для тексту
-        //    dataGridView1.DefaultCellStyle.Font = new Font("Arial", 8);
+            // Зміна розміру шрифту для тексту
+            //dataGridView1.DefaultCellStyle.Font = new Font("Arial", 8);
 
-        //    // Зміна ширини стовпців для підбору до ширини сторінки
-        //    foreach (DataGridViewColumn column in dataGridView1.Columns)
-        //    {
-        //        column.Width = 110;
-        //    }
-        //}
+            // Зміна ширини стовпців для підбору до ширини сторінки
+            //foreach (DataGridViewColumn column in dataGridView1.Columns)
+            //{
+            //    column.Width = 110;
+            //}
+        }
 
         // private void delete_meeting_Click(object sender, EventArgs e)
         //{
@@ -135,11 +167,14 @@ namespace IS_Meetings_with_clients
         //        MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         //    }
         //}
-        //private void button13_Click(object sender, EventArgs e)
-        //{
-        //    Close();
-        //    Application.Exit();
-        //}
+        private void Form_close(object sender, EventArgs e)
+        {
+            if (connection != null && connection.State == ConnectionState.Open)
+                connection.Close();
+
+            Close();
+            Application.Exit();
+        }
 
         //private void reportViewer1_Load(object sender, EventArgs e)
         //{

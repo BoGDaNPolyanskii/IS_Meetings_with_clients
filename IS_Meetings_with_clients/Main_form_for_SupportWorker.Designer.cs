@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_form_for_SupportWorker));
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource4 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource5 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource6 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.supportworkerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1 = new IS_Meetings_with_clients.DataSet1();
             this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -82,11 +82,11 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.change_meeting_data_button = new System.Windows.Forms.Button();
             this.Worker = new System.Windows.Forms.TabControl();
             ((System.ComponentModel.ISupportInitialize)(this.supportworkerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
@@ -155,7 +155,7 @@
             this.button13.Size = new System.Drawing.Size(39, 37);
             this.button13.TabIndex = 28;
             this.button13.UseVisualStyleBackColor = true;
-            //this.button13.Click += new System.EventHandler(this.button13_Click);
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // clientTableAdapter
             // 
@@ -185,21 +185,21 @@
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Trebuchet MS", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(83, 708);
+            this.label7.Font = new System.Drawing.Font("Trebuchet MS", 11F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(9, 709);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(660, 27);
+            this.label7.Size = new System.Drawing.Size(614, 27);
             this.label7.TabIndex = 36;
-            this.label7.Text = "Служба підтримки: www.help.ua ;      телефон: 0961234567";
+            this.label7.Text = "Служба підтримки: www.help.ua ;  телефон: 0961234567";
             // 
             // label24
             // 
             this.label24.AutoSize = true;
             this.label24.BackColor = System.Drawing.Color.Transparent;
-            this.label24.Font = new System.Drawing.Font("Trebuchet MS", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(810, 709);
+            this.label24.Font = new System.Drawing.Font("Trebuchet MS", 11F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label24.Location = new System.Drawing.Point(643, 709);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(120, 27);
+            this.label24.Size = new System.Drawing.Size(116, 27);
             this.label24.TabIndex = 33;
             this.label24.Text = "ID worker:";
             // 
@@ -207,12 +207,12 @@
             // 
             this.textBox_ID_worker.BackColor = System.Drawing.Color.Silver;
             this.textBox_ID_worker.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_ID_worker.Font = new System.Drawing.Font("Trebuchet MS", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox_ID_worker.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 9F);
             this.textBox_ID_worker.ForeColor = System.Drawing.Color.Black;
-            this.textBox_ID_worker.Location = new System.Drawing.Point(925, 710);
+            this.textBox_ID_worker.Location = new System.Drawing.Point(760, 714);
             this.textBox_ID_worker.Name = "textBox_ID_worker";
             this.textBox_ID_worker.ReadOnly = true;
-            this.textBox_ID_worker.Size = new System.Drawing.Size(100, 26);
+            this.textBox_ID_worker.Size = new System.Drawing.Size(312, 22);
             this.textBox_ID_worker.TabIndex = 34;
             this.textBox_ID_worker.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -223,7 +223,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 34);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1011, 539);
+            this.tabPage2.Size = new System.Drawing.Size(1011, 540);
             this.tabPage2.TabIndex = 6;
             this.tabPage2.Text = "Облік проведених робіт";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -242,11 +242,11 @@
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Location = new System.Drawing.Point(512, 19);
+            this.groupBox2.Location = new System.Drawing.Point(512, 11);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(479, 515);
+            this.groupBox2.Size = new System.Drawing.Size(479, 526);
             this.groupBox2.TabIndex = 47;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Акт виконаних робіт";
@@ -342,10 +342,10 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Sitka Banner", 10F, System.Drawing.FontStyle.Bold);
-            this.button2.Location = new System.Drawing.Point(160, 463);
+            this.button2.Location = new System.Drawing.Point(160, 466);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(148, 42);
+            this.button2.Size = new System.Drawing.Size(148, 46);
             this.button2.TabIndex = 8;
             this.button2.Text = "Зберегти";
             this.button2.UseVisualStyleBackColor = true;
@@ -364,11 +364,11 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Location = new System.Drawing.Point(16, 19);
+            this.groupBox1.Location = new System.Drawing.Point(16, 11);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(461, 515);
+            this.groupBox1.Size = new System.Drawing.Size(461, 526);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Облік проведеного візиту обслуговування";
@@ -466,10 +466,10 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Sitka Banner", 10F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(154, 463);
+            this.button1.Location = new System.Drawing.Point(154, 466);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(148, 42);
+            this.button1.Size = new System.Drawing.Size(148, 46);
             this.button1.TabIndex = 8;
             this.button1.Text = "Зберегти";
             this.button1.UseVisualStyleBackColor = true;
@@ -480,7 +480,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 34);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1011, 539);
+            this.tabPage5.Size = new System.Drawing.Size(1011, 540);
             this.tabPage5.TabIndex = 5;
             this.tabPage5.Text = "Звіт";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -489,10 +489,10 @@
             // 
             this.tabControl2.Controls.Add(this.Support);
             this.tabControl2.Controls.Add(this.Clients);
-            this.tabControl2.Location = new System.Drawing.Point(-4, 0);
+            this.tabControl2.Location = new System.Drawing.Point(0, 4);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(1012, 539);
+            this.tabControl2.Size = new System.Drawing.Size(1008, 539);
             this.tabControl2.TabIndex = 0;
             // 
             // Support
@@ -501,18 +501,18 @@
             this.Support.Location = new System.Drawing.Point(4, 34);
             this.Support.Name = "Support";
             this.Support.Padding = new System.Windows.Forms.Padding(3);
-            this.Support.Size = new System.Drawing.Size(1004, 501);
+            this.Support.Size = new System.Drawing.Size(1000, 501);
             this.Support.TabIndex = 0;
             this.Support.Text = "Звіт по працівникам";
             this.Support.UseVisualStyleBackColor = true;
             // 
             // reportViewer1
             // 
-            reportDataSource3.Name = "DataSet1";
-            reportDataSource3.Value = this.supportworkerBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource3);
+            reportDataSource5.Name = "DataSet1";
+            reportDataSource5.Value = this.supportworkerBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource5);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "IS_Meetings_with_clients.Report2.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(-4, 0);
+            this.reportViewer1.Location = new System.Drawing.Point(-3, -2);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(1015, 502);
@@ -524,16 +524,16 @@
             this.Clients.Location = new System.Drawing.Point(4, 34);
             this.Clients.Name = "Clients";
             this.Clients.Padding = new System.Windows.Forms.Padding(3);
-            this.Clients.Size = new System.Drawing.Size(1004, 501);
+            this.Clients.Size = new System.Drawing.Size(1000, 501);
             this.Clients.TabIndex = 1;
             this.Clients.Text = "Звіт по клієнтам";
             this.Clients.UseVisualStyleBackColor = true;
             // 
             // reportViewer2
             // 
-            reportDataSource4.Name = "DataSet1";
-            reportDataSource4.Value = this.clientBindingSource;
-            this.reportViewer2.LocalReport.DataSources.Add(reportDataSource4);
+            reportDataSource6.Name = "DataSet1";
+            reportDataSource6.Value = this.clientBindingSource;
+            this.reportViewer2.LocalReport.DataSources.Add(reportDataSource6);
             this.reportViewer2.LocalReport.ReportEmbeddedResource = "IS_Meetings_with_clients.Report1.rdlc";
             this.reportViewer2.Location = new System.Drawing.Point(-4, 0);
             this.reportViewer2.Name = "reportViewer2";
@@ -548,7 +548,7 @@
             this.tabPage4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage4.Size = new System.Drawing.Size(1011, 539);
+            this.tabPage4.Size = new System.Drawing.Size(1011, 540);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Заявки";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -558,7 +558,7 @@
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.tabControl1.Location = new System.Drawing.Point(0, 4);
+            this.tabControl1.Location = new System.Drawing.Point(0, 3);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -602,26 +602,34 @@
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.White;
-            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.comboBox1);
             this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Controls.Add(this.comboBox2);
             this.groupBox3.Controls.Add(this.label17);
-            this.groupBox3.Controls.Add(this.button3);
-            this.groupBox3.Location = new System.Drawing.Point(228, 165);
+            this.groupBox3.Controls.Add(this.change_meeting_data_button);
+            this.groupBox3.Location = new System.Drawing.Point(141, 144);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox3.Size = new System.Drawing.Size(554, 216);
+            this.groupBox3.Size = new System.Drawing.Size(714, 216);
             this.groupBox3.TabIndex = 6;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Встановлення статусу заявки";
             // 
-            // textBox1
+            // comboBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(297, 46);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(233, 31);
-            this.textBox1.TabIndex = 32;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "призначено",
+            "в процесі",
+            "скасовано",
+            "проведено"});
+            this.comboBox1.Location = new System.Drawing.Point(297, 42);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(387, 33);
+            this.comboBox1.TabIndex = 30;
             // 
             // label12
             // 
@@ -638,14 +646,14 @@
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
-            "Scheduled",
-            "Canceled",
-            "In process",
-            "Completed"});
+            "призначено",
+            "в процесі",
+            "скасовано",
+            "проведено"});
             this.comboBox2.Location = new System.Drawing.Point(297, 94);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(233, 33);
+            this.comboBox2.Size = new System.Drawing.Size(387, 33);
             this.comboBox2.TabIndex = 28;
             // 
             // label17
@@ -658,17 +666,17 @@
             this.label17.TabIndex = 24;
             this.label17.Text = "Статус обслуговування";
             // 
-            // button3
+            // change_meeting_data_button
             // 
-            this.button3.Font = new System.Drawing.Font("Sitka Banner", 10F, System.Drawing.FontStyle.Bold);
-            this.button3.Location = new System.Drawing.Point(198, 150);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(148, 42);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "Зберегти";
-            this.button3.UseVisualStyleBackColor = true;
-            //this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.change_meeting_data_button.Font = new System.Drawing.Font("Sitka Subheading", 10F, System.Drawing.FontStyle.Bold);
+            this.change_meeting_data_button.Location = new System.Drawing.Point(277, 149);
+            this.change_meeting_data_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.change_meeting_data_button.Name = "change_meeting_data_button";
+            this.change_meeting_data_button.Size = new System.Drawing.Size(159, 47);
+            this.change_meeting_data_button.TabIndex = 8;
+            this.change_meeting_data_button.Text = "Зберегти";
+            this.change_meeting_data_button.UseVisualStyleBackColor = true;
+            this.change_meeting_data_button.Click += new System.EventHandler(this.change_meeting_data_Click);
             // 
             // Worker
             // 
@@ -676,11 +684,11 @@
             this.Worker.Controls.Add(this.tabPage5);
             this.Worker.Controls.Add(this.tabPage2);
             this.Worker.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Worker.Location = new System.Drawing.Point(30, 115);
+            this.Worker.Location = new System.Drawing.Point(30, 114);
             this.Worker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Worker.Name = "Worker";
             this.Worker.SelectedIndex = 0;
-            this.Worker.Size = new System.Drawing.Size(1019, 577);
+            this.Worker.Size = new System.Drawing.Size(1019, 578);
             this.Worker.TabIndex = 27;
             // 
             // Main_form_for_SupportWorker
@@ -699,8 +707,8 @@
             this.Controls.Add(this.button13);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Main_form_for_SupportWorker";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
-            //this.Load += new System.EventHandler(this.Main_form_for_SupportWorker_Load);
             ((System.ComponentModel.ISupportInitialize)(this.supportworkerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
@@ -780,11 +788,11 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button change_meeting_data_button;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 
 }
