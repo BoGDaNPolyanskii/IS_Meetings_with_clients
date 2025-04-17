@@ -10,5 +10,21 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=BOGDANPC;Initial Catalog=Meeting_base;User ID=sa;Password=0</Value>
     </Setting>
+    <Setting Name="RepairServiceDBConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionString&gt;Data Source=BOGDANPC;Initial Catalog=RepairServiceDB;Persist Security Info=True;User ID=sa&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=BOGDANPC;Initial Catalog=RepairServiceDB;Persist Security Info=True;User ID=sa</Value>
+    </Setting>
+    <Setting Name="RepairServiceDBConnectionString1" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionString&gt;Data Source=130.211.53.34;Initial Catalog=RepairServiceDB;Persist Security Info=True;User ID=sqlserver;Password=008884&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=130.211.53.34;Initial Catalog=RepairServiceDB;Persist Security Info=True;User ID=sqlserver;Password=008884</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

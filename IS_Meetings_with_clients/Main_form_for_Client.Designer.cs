@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_form_for_Client));
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.dataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet2 = new IS_Meetings_with_clients.DataSet2();
             this.button13 = new System.Windows.Forms.Button();
@@ -61,11 +61,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.tabPage9 = new System.Windows.Forms.TabPage();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.richTextBox3 = new System.Windows.Forms.RichTextBox();
@@ -82,6 +77,11 @@
             this.редагуватиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.контактніДаніToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.звітToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cancellation_of_visit_request = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).BeginInit();
@@ -92,12 +92,12 @@
             this.groupBox1.SuspendLayout();
             this.tabPage8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.tabPage9.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox11.SuspendLayout();
             this.Client_control.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.tabPage9.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataTable1BindingSource
@@ -201,16 +201,16 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 32);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1011, 541);
+            this.tabPage5.Size = new System.Drawing.Size(1015, 541);
             this.tabPage5.TabIndex = 5;
             this.tabPage5.Text = "Звіт";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // reportViewer1
             // 
-            reportDataSource3.Name = "DataSet2";
-            reportDataSource3.Value = this.dataTable1BindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource3);
+            reportDataSource1.Name = "DataSet2";
+            reportDataSource1.Value = this.dataTable1BindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "IS_Meetings_with_clients.Report3.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(-4, 0);
             this.reportViewer1.Name = "reportViewer1";
@@ -244,7 +244,7 @@
             this.tabControl1.Controls.Add(this.tabPage8);
             this.tabControl1.Controls.Add(this.tabPage9);
             this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.tabControl1.Location = new System.Drawing.Point(3, 5);
+            this.tabControl1.Location = new System.Drawing.Point(0, 3);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -391,6 +391,7 @@
             this.button1.TabIndex = 15;
             this.button1.Text = "Подати заявку";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Add_meeting_Click);
             // 
             // tabPage8
             // 
@@ -408,69 +409,12 @@
             // 
             this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView2.Location = new System.Drawing.Point(-1, -1);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 62;
             this.dataGridView2.RowTemplate.Height = 28;
-            this.dataGridView2.Size = new System.Drawing.Size(1001, 495);
+            this.dataGridView2.Size = new System.Drawing.Size(1002, 495);
             this.dataGridView2.TabIndex = 32;
-            // 
-            // tabPage9
-            // 
-            this.tabPage9.Controls.Add(this.groupBox3);
-            this.tabPage9.Location = new System.Drawing.Point(4, 34);
-            this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(1001, 495);
-            this.tabPage9.TabIndex = 4;
-            this.tabPage9.Text = "Скасування запису";
-            this.tabPage9.UseVisualStyleBackColor = true;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.comboBox3);
-            this.groupBox3.Controls.Add(this.label13);
-            this.groupBox3.Controls.Add(this.button2);
-            this.groupBox3.Location = new System.Drawing.Point(261, 175);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox3.Size = new System.Drawing.Size(477, 160);
-            this.groupBox3.TabIndex = 5;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Скасування назначеного візиту";
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.Font = new System.Drawing.Font("Trebuchet MS", 8F);
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(163, 43);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(294, 30);
-            this.comboBox3.TabIndex = 32;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.label13.Location = new System.Drawing.Point(13, 43);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(126, 30);
-            this.label13.TabIndex = 29;
-            this.label13.Text = "Код візиту";
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Sitka Banner", 10F, System.Drawing.FontStyle.Bold);
-            this.button2.Location = new System.Drawing.Point(163, 94);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(181, 43);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "Видалити";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
@@ -625,6 +569,64 @@
             this.звітToolStripMenuItem.Size = new System.Drawing.Size(199, 32);
             this.звітToolStripMenuItem.Text = "Звіт";
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.comboBox3);
+            this.groupBox3.Controls.Add(this.label13);
+            this.groupBox3.Controls.Add(this.cancellation_of_visit_request);
+            this.groupBox3.Location = new System.Drawing.Point(187, 145);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox3.Size = new System.Drawing.Size(611, 177);
+            this.groupBox3.TabIndex = 5;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Скасування назначеного візиту";
+            // 
+            // cancellation_of_visit_request
+            // 
+            this.cancellation_of_visit_request.Font = new System.Drawing.Font("Sitka Banner", 10F, System.Drawing.FontStyle.Bold);
+            this.cancellation_of_visit_request.Location = new System.Drawing.Point(207, 102);
+            this.cancellation_of_visit_request.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cancellation_of_visit_request.Name = "cancellation_of_visit_request";
+            this.cancellation_of_visit_request.Size = new System.Drawing.Size(186, 50);
+            this.cancellation_of_visit_request.TabIndex = 15;
+            this.cancellation_of_visit_request.Text = "Скасувати візит";
+            this.cancellation_of_visit_request.UseVisualStyleBackColor = true;
+            this.cancellation_of_visit_request.Click += new System.EventHandler(this.cancellation_of_visit_request_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.label13.Location = new System.Drawing.Point(13, 49);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(126, 30);
+            this.label13.TabIndex = 29;
+            this.label13.Text = "Код візиту";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox3.Font = new System.Drawing.Font("Trebuchet MS", 8F);
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(163, 49);
+            this.comboBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(425, 30);
+            this.comboBox3.TabIndex = 32;
+            // 
+            // tabPage9
+            // 
+            this.tabPage9.Controls.Add(this.groupBox3);
+            this.tabPage9.Location = new System.Drawing.Point(4, 34);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage9.Size = new System.Drawing.Size(1001, 495);
+            this.tabPage9.TabIndex = 4;
+            this.tabPage9.Text = "Скасування запису";
+            this.tabPage9.UseVisualStyleBackColor = true;
+            // 
             // Main_form_for_Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -653,14 +655,14 @@
             this.groupBox1.PerformLayout();
             this.tabPage8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.tabPage9.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
             this.Client_control.ResumeLayout(false);
             this.contextMenuStrip1.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.tabPage9.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -697,11 +699,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TabPage tabPage8;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.TabPage tabPage9;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox groupBox11;
         private System.Windows.Forms.RichTextBox richTextBox3;
@@ -718,6 +715,11 @@
         private System.Windows.Forms.ToolStripMenuItem редагуватиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem контактніДаніToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem звітToolStripMenuItem;
+        private System.Windows.Forms.TabPage tabPage9;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button cancellation_of_visit_request;
     }
 
 }

@@ -32,5 +32,27 @@ namespace IS_Meetings_with_clients.Properties {
                 return ((string)(this["Meeting_baseConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=BOGDANPC;Initial Catalog=RepairServiceDB;Persist Security Info=True;U" +
+            "ser ID=sa")]
+        public string RepairServiceDBConnectionString {
+            get {
+                return ((string)(this["RepairServiceDBConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=130.211.53.34;Initial Catalog=RepairServiceDB;Persist Security Info=T" +
+            "rue;User ID=sqlserver;Password=008884")]
+        public string RepairServiceDBConnectionString1 {
+            get {
+                return ((string)(this["RepairServiceDBConnectionString1"]));
+            }
+        }
     }
 }

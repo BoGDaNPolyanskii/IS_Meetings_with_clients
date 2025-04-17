@@ -6,33 +6,38 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>6.74516cm</Width>
+              <Width>1.58983cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>5.04126cm</Width>
+              <Width>2.59525cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.74153cm</Width>
+              <Width>2.754cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.16486cm</Width>
+              <Width>3.33608cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>3.81233cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>1.10271cm</Height>
+              <Height>0.6cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox21">
+                    <Textbox Name="Textbox17">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Код працівника</Value>
-                              <Style />
+                              <Value>ID client</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -40,13 +45,12 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox21</rd:DefaultName>
+                      <rd:DefaultName>Textbox17</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -64,8 +68,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Прізвище та ім'я працівника</Value>
-                              <Style />
+                              <Value>Full name</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -79,7 +85,6 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -90,15 +95,17 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox13">
+                    <Textbox Name="Textbox21">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Кількість візитів</Value>
-                              <Style />
+                              <Value>Phone number</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -106,7 +113,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox13</rd:DefaultName>
+                      <rd:DefaultName>Textbox21</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -122,15 +129,17 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox15">
+                    <Textbox Name="Textbox25">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Отримані кошти, грн.</Value>
-                              <Style />
+                              <Value>Canceled Meetings</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -138,7 +147,41 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox15</rd:DefaultName>
+                      <rd:DefaultName>Textbox25</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox23">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Scheduled Meetings</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox23</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -155,25 +198,25 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.82049cm</Height>
+              <Height>0.6cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="WorkerID">
+                    <Textbox Name="ID_client1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!WorkerID.Value</Value>
+                              <Value>=Fields!ID_client.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>WorkerID</rd:DefaultName>
+                      <rd:DefaultName>ID_client1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -189,21 +232,21 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="WorkerName">
+                    <Textbox Name="Full_name1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!WorkerName.Value</Value>
+                              <Value>=Fields!Full_name.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>WorkerName</rd:DefaultName>
+                      <rd:DefaultName>Full_name1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -219,21 +262,21 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="TotalRepairs">
+                    <Textbox Name="Phone_number1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!TotalRepairs.Value</Value>
+                              <Value>=Fields!Phone_number.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>TotalRepairs</rd:DefaultName>
+                      <rd:DefaultName>Phone_number1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -249,21 +292,51 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="TotalEarned">
+                    <Textbox Name="CanceledMeetings1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!TotalEarned.Value</Value>
+                              <Value>=Fields!CanceledMeetings.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>TotalEarned</rd:DefaultName>
+                      <rd:DefaultName>CanceledMeetings1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="ScheduledMeetings1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!ScheduledMeetings.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>ScheduledMeetings1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -287,6 +360,7 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
+            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -295,15 +369,15 @@
               <KeepWithGroup>After</KeepWithGroup>
             </TablixMember>
             <TablixMember>
-              <Group Name="Details" />
+              <Group Name="Details1" />
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>DataSet_1</DataSetName>
-        <Top>0.35842cm</Top>
-        <Left>0.42192cm</Left>
-        <Height>1.92319cm</Height>
-        <Width>15.69281cm</Width>
+        <DataSetName>DataSet1</DataSetName>
+        <Top>0.46426cm</Top>
+        <Left>1.59331cm</Left>
+        <Height>1.2cm</Height>
+        <Width>14.08749cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -311,13 +385,13 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>1.03472in</Height>
+    <Height>0.83333in</Height>
     <Style />
   </Body>
-  <Width>6.45549in</Width>
+  <Width>6.77083in</Width>
   <Page>
     <PageHeader>
-      <Height>2.16606cm</Height>
+      <Height>2.91042cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -328,7 +402,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Звіт по візитам працівників</Value>
+                  <Value>Report on client`s meetings</Value>
                   <Style>
                     <FontFamily>Bahnschrift SemiCondensed</FontFamily>
                     <FontSize>20pt</FontSize>
@@ -342,8 +416,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
+          <Top>0.468cm</Top>
+          <Left>0.03544cm</Left>
           <Height>1.02333cm</Height>
-          <Width>16.37931cm</Width>
+          <Width>17.16248cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -361,10 +437,16 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Дата формування:</Value>
+                  <Value>Print date</Value>
                   <Style>
                     <FontSize>12pt</FontSize>
                     <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+                <TextRun>
+                  <Value>:</Value>
+                  <Style>
+                    <FontSize>12pt</FontSize>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -372,10 +454,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox4</rd:DefaultName>
-          <Top>1.31911cm</Top>
-          <Left>2.57864cm</Left>
+          <Top>1.84242cm</Top>
+          <Left>1.59331cm</Left>
           <Height>0.6cm</Height>
-          <Width>4.17569cm</Width>
+          <Width>2.34125cm</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
@@ -409,10 +491,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox4</rd:DefaultName>
-          <Top>1.31911cm</Top>
-          <Left>7.14115cm</Left>
+          <Top>1.84242cm</Top>
+          <Left>4.17798cm</Left>
           <Height>0.6cm</Height>
-          <Width>6.64514cm</Width>
+          <Width>6.09833cm</Width>
           <ZIndex>2</ZIndex>
           <Style>
             <Border>
@@ -442,48 +524,68 @@
   </Page>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="RepairServiceDBDataSet_1">
+    <DataSource Name="DataSet1">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>466f8ee7-a212-47af-b38c-5356f9a1cd23</rd:DataSourceID>
+      <rd:DataSourceID>d76475d5-5fc0-4a0e-a9b0-28cbef89c88d</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DataSet_1">
+    <DataSet Name="DataSet1">
       <Query>
-        <DataSourceName>RepairServiceDBDataSet_1</DataSourceName>
+        <DataSourceName>DataSet1</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="WorkerID">
-          <DataField>WorkerID</DataField>
-          <rd:TypeName>System.Guid</rd:TypeName>
-        </Field>
-        <Field Name="WorkerName">
-          <DataField>WorkerName</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="TotalRepairs">
-          <DataField>TotalRepairs</DataField>
+        <Field Name="ID_client">
+          <DataField>ID_client</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="TotalEarned">
-          <DataField>TotalEarned</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
+        <Field Name="Full_name">
+          <DataField>Full_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Phone_number">
+          <DataField>Phone_number</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Email">
+          <DataField>Email</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Address">
+          <DataField>Address</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Login">
+          <DataField>Login</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Password">
+          <DataField>Password</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CanceledMeetings">
+          <DataField>CanceledMeetings</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ScheduledMeetings">
+          <DataField>ScheduledMeetings</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>RepairServiceDBDataSet_1</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\polya\source\repos\IS_Meetings_with_clients\IS_Meetings_with_clients\RepairServiceDBDataSet_1.xsd</rd:SchemaPath>
-        <rd:TableName>GetWorkerRepairReport</rd:TableName>
+        <rd:DataSetName>DataSet1</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\polya\source\repos\IS_Meetings_with_clients\IS_Meetings_with_clients\DataSet1.xsd</rd:SchemaPath>
+        <rd:TableName>Client</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>GetWorkerRepairReportTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>ClientTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>f9e6e56e-f760-4254-9662-0e6a0592361c</rd:ReportID>
+  <rd:ReportID>bbc67a55-6e10-4d5c-885f-0c0f92efb388</rd:ReportID>
 </Report>

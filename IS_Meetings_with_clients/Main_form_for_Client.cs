@@ -1,14 +1,13 @@
-﻿using Microsoft.ReportingServices.ReportProcessing.ReportObjectModel;
-using System;
+﻿using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using Microsoft.Reporting.WinForms;
 
 namespace IS_Meetings_with_clients
-{
- 
+{ 
     public partial class Main_form_for_Client : Form
     {
         private SqlConnection connection;
@@ -23,11 +22,12 @@ namespace IS_Meetings_with_clients
             this.login = login;
             this.clientID = userId.ToString();
 
-            //// Load user data on form load
             LoadUserData();
-            //LoadMeetingsForClient();
+            LoadMeetingsForClient();
+            LoadScheduledMeetings();
+            LoadRepairTypes();
 
-            //// Ініціалізація таймера
+            // Ініціалізація таймера
             scheduleTimer = new Timer();
             scheduleTimer.Interval = 60000; // Оновлення кожні 60 секунд (60000 мілісекунд)
             scheduleTimer.Tick += ScheduleTimer_Tick;
@@ -58,10 +58,12 @@ namespace IS_Meetings_with_clients
             MessageBox.Show("Дані успішно оновлено!", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        //// Метод, який викликається під час спрацьовування таймера для оновлення графіка зустрічей
+        // Метод, який викликається під час спрацьовування таймера для оновлення даних, наприклад графіка візитів
         private void ScheduleTimer_Tick(object sender, EventArgs e)
         {
-            //LoadMeetingsForClient();
+            LoadMeetingsForClient();
+            LoadUserData();
+            LoadScheduledMeetings();
         }
         private void LoadUserData()
         {
@@ -83,31 +85,110 @@ namespace IS_Meetings_with_clients
                 var addressResult = addressCmd.ExecuteScalar();
                 if (addressResult != null)
                     richTextBox3.Text = addressResult.ToString();
+                    richTextBox4.Text = addressResult.ToString();
             }
         }
 
+        private void LoadRepairTypes()
+        {
+            string query = "SELECT ID_repair_type, Repair_name, Description_of_types FROM Repair_type";
 
-        //private void Add_meeting_Click(object sender, EventArgs e)
-        //{
-        //    DateTime date = dateTimePicker2.Value.Date;
-        //    DateTime time = dateTimePicker1.Value;
-        //    string address = richTextBox3.Text;
-        //    string problemDescription = richTextBox2.Text;
-        //    string clientId = ID_client_textBox.Text;
+            using (SqlCommand cmd = new SqlCommand(query, connection))
+            {
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    DataTable repairTypes = new DataTable();
+                    repairTypes.Load(reader);
 
-        //    _meetingDataAccess.AddMeeting(clientId, date, time, address, problemDescription);
-        //    LoadMeetingsForClient();
-        //}
+                    comboBox2.DataSource = repairTypes;
+                    comboBox2.DisplayMember = "Repair_name";
+                    comboBox2.ValueMember = "ID_repair_type";
+                }
+            }
+        }
 
-        //private void Save_changed_client_data_Click(object sender, EventArgs e)
-        //{
-        //    string phoneNumber = textBox2.Text;
-        //    string email = textBox3.Text;
-        //    string address = richTextBox3.Text;
-        //    string clientId = ID_client_textBox.Text;
+        private void Add_meeting_Click(object sender, EventArgs e)
+        {
+            // Об'єднання дати та часу
+            DateTime selectedDate = dateTimePicker4.Value.Date;
+            TimeSpan selectedTime = dateTimePicker3.Value.TimeOfDay;
+            DateTime requestDateTime = selectedDate + selectedTime;
 
-        //    _clientDataAccess.UpdateClientData(clientId, phoneNumber, email, address);
-        //}
+            string address = richTextBox4.Text.Trim();
+            string problemDescription = richTextBox5.Text.Trim();
+
+            if (comboBox2.SelectedValue == null)
+            {
+                MessageBox.Show("Будь ласка, оберіть тип ремонту.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            Guid repairTypeId = (Guid)comboBox2.SelectedValue;
+
+            // Перевірка на дублювання заявки на той самий час
+            string duplicateCheckQuery = @"
+            SELECT COUNT(*) FROM Repair_request
+            WHERE ID_user = @UserId AND Request_date = @RequestDate";
+
+            using (SqlCommand duplicateCheckCmd = new SqlCommand(duplicateCheckQuery, connection))
+            {
+                duplicateCheckCmd.Parameters.AddWithValue("@UserId", clientID);
+                duplicateCheckCmd.Parameters.AddWithValue("@RequestDate", requestDateTime);
+
+                int existingCount = (int)duplicateCheckCmd.ExecuteScalar();
+                if (existingCount > 0)
+                {
+                    MessageBox.Show("У вас вже є заявка на цей час. Будь ласка, оберіть інший час.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
+            // Перевірка на інтервал не менше 2 годин між заявками
+            string intervalCheckQuery = @"
+            SELECT COUNT(*) FROM Repair_request
+            WHERE ID_user = @UserId AND ABS(DATEDIFF(MINUTE, Request_date, @RequestDate)) < 120";
+
+            using (SqlCommand intervalCheckCmd = new SqlCommand(intervalCheckQuery, connection))
+            {
+                intervalCheckCmd.Parameters.AddWithValue("@UserId", clientID);
+                intervalCheckCmd.Parameters.AddWithValue("@RequestDate", requestDateTime);
+
+                int intervalCount = (int)intervalCheckCmd.ExecuteScalar();
+                if (intervalCount > 0)
+                {
+                    MessageBox.Show("Між заявками має бути інтервал не менше 2 годин. Будь ласка, оберіть інший час.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
+            // Додавання нової заявки
+            string insertQuery = @"
+            INSERT INTO Repair_request (Request_date, Visit_address, ID_user, ID_repair_type, Problem_description, Status)
+            VALUES (@RequestDate, @VisitAddress, @UserId, @RepairTypeId, @ProblemDescription, 'призначено')";
+
+            using (SqlCommand insertCmd = new SqlCommand(insertQuery, connection))
+            {
+                insertCmd.Parameters.AddWithValue("@RequestDate", requestDateTime);
+                insertCmd.Parameters.AddWithValue("@VisitAddress", address);
+                insertCmd.Parameters.AddWithValue("@UserId", clientID);
+                insertCmd.Parameters.AddWithValue("@RepairTypeId", repairTypeId);
+                insertCmd.Parameters.AddWithValue("@ProblemDescription", problemDescription);
+
+                int rowsAffected = insertCmd.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Заявку успішно додано!", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadMeetingsForClient();
+                    LoadScheduledMeetings();
+                }
+                else
+                {
+                    MessageBox.Show("Не вдалося додати заявку.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
         //private void Main_form_for_Client_Load(object sender, EventArgs e)
         //{
         //    LoadMeetingsForClient();
@@ -116,57 +197,37 @@ namespace IS_Meetings_with_clients
 
         private void LoadMeetingsForClient()
         {
-            //DataTable dataTable = _meetingDataAccess.GetMeetingsForClient(ID_client_textBox.Text);
+            string query = @"
+            SELECT 
+                r.ID_request AS [ID заявки],
+                r.Request_date AS [Дата та час],
+                r.Visit_address AS [Адреса],
+                rt.Repair_name AS [Тип ремонту],
+                r.Problem_description AS [Опис проблеми],
+                r.Status AS [Статус]
+            FROM Repair_request r
+            INNER JOIN Repair_type rt ON r.ID_repair_type = rt.ID_repair_type
+            WHERE r.ID_user = @id
+            ORDER BY r.Request_date DESC";
 
-            // Очищення вмісту comboBox14 перед додаванням нових значень
-            //comboBox14.Items.Clear();
+            using (SqlCommand cmd = new SqlCommand(query, connection))
+            {
+                cmd.Parameters.AddWithValue("@id", clientID);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                dataGridView2.DataSource = table;
 
-            // Додавання кодів зустрічей до comboBox14
-            //foreach (DataRow row in dataTable.Rows)
-            //{
-            //    comboBox14.Items.Add(row["ID_meeting"].ToString());
-            //}
+                dataGridView2.RowHeadersVisible = false;
+                dataGridView2.DefaultCellStyle.Font = new Font("Arial", 8);
 
-            // Видалення першої пустої колонки
-            //dataGridView1.RowHeadersVisible = false;
-
-            // Відображення даних в dataGridView1
-            //dataGridView1.DataSource = dataTable;
-
-            // Зміна розміру шрифту для тексту
-            //dataGridView1.DefaultCellStyle.Font = new Font("Arial", 8);
-
-            // Зміна ширини стовпців для підбору до ширини сторінки
-            //foreach (DataGridViewColumn column in dataGridView1.Columns)
-            //{
-            //    column.Width = 110;
-            //}
+                foreach (DataGridViewColumn column in dataGridView2.Columns)
+                {
+                    column.Width = 110;
+                }
+            }
         }
 
-        // private void delete_meeting_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        if (comboBox14.SelectedIndex == -1)
-        //        {
-        //            MessageBox.Show("Будь ласка, виберіть зустріч для видалення!", "Попередження", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //            return;
-        //        }
-
-        //        DialogResult result = MessageBox.Show("Ви впевнені що хочете видалити обрану зустріч?", "Підтвердження видалення", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-        //        if (result == DialogResult.Yes)
-        //        {
-        //            int meetingId = Convert.ToInt32(comboBox14.SelectedItem.ToString());//в комбобокс 14 пропав код для загрузки ід зустрічей тут
-        //            _meetingDataAccess.DeleteMeeting(meetingId.ToString());
-        //            LoadMeetingsForClient();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
         private void Form_close(object sender, EventArgs e)
         {
             if (connection != null && connection.State == ConnectionState.Open)
@@ -174,6 +235,71 @@ namespace IS_Meetings_with_clients
 
             Close();
             Application.Exit();
+        }
+
+        private void LoadScheduledMeetings()
+        {
+            string query = @"
+            SELECT ID_request
+            FROM Repair_request
+            WHERE ID_user = @id AND Status = 'призначено'
+            ORDER BY Request_date DESC";
+
+            using (SqlCommand cmd = new SqlCommand(query, connection))
+            {
+                cmd.Parameters.AddWithValue("@id", clientID);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    comboBox3.Items.Clear();
+                    while (reader.Read())
+                    {
+                        comboBox3.Items.Add(reader["ID_request"].ToString());
+                    }
+                }
+            }
+        }
+
+        private void cancellation_of_visit_request_Click(object sender, EventArgs e)
+        {
+            if (comboBox3.SelectedItem == null)
+            {
+                MessageBox.Show("Будь ласка, оберіть зустріч для скасування.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (MessageBox.Show("Ви впевнені, що хочете скасувати обрану заявку на візит?", "Підтвердження скасування", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+            {
+                return;
+            }
+
+            if (!Guid.TryParse(comboBox3.SelectedItem.ToString(), out Guid requestId))
+            {
+                MessageBox.Show("Невірний формат ID зустрічі.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string query = "UPDATE Repair_request SET Status = 'скасовано' WHERE ID_request = @RequestId AND ID_user = @id";
+
+            using (SqlCommand cmd = new SqlCommand(query, connection))
+            {
+                cmd.Parameters.AddWithValue("@RequestId", requestId);
+                cmd.Parameters.AddWithValue("@id", clientID);
+
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Заявку на візит успішно скасовано.", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadScheduledMeetings(); // Оновлення списку після скасування
+                    LoadMeetingsForClient(); // Оновлення таблиці заявок
+                }
+                else
+                {
+                    MessageBox.Show("Не вдалося скасувати зустріч.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            LoadScheduledMeetings();
+            LoadMeetingsForClient();
         }
 
         //private void reportViewer1_Load(object sender, EventArgs e)
@@ -224,20 +350,5 @@ namespace IS_Meetings_with_clients
         //    //}
         //}
 
-        //private void Client_control_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-
-        //}
-
-
-        //private void comboBox14_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-
-        //}
-
-        //private void Save_changed_client_data_Click_1(object sender, EventArgs e)
-        //{
-
-        //}
     }
 }
